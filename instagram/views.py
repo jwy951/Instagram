@@ -49,17 +49,17 @@ def profile(request, username):
     }
     return render(request, 'profile.html', params)
 
-# def update_profile(request):
-#     if request.method == 'POST':
-#         form = ProfileForm(request.POST,request.FILES)
-#         print(form.errors)
-#         if form.is_valid():
-#             post = form.save(commit=False)
-#             post.save()
-#             return redirect('profile')
-#     else:
-#         form = UploadForm()
-#     return render(request,'edit_profile.html',{"form":form})
+def update_profile(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST,request.FILES)
+        print(form.errors)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('profile')
+    else:
+        form = UploadForm()
+    return render(request,'edit_profile.html',{"form":form})
 
 # def like_post(request):
 #     # image = get_object_or_404(Post, id=request.POST.get('image_id'))

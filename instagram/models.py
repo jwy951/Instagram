@@ -78,13 +78,13 @@ class Follow(models.Model):
     def __str__(self):
         return f'{self.follower} Follow'
 
-# class Comment(models.Model):
-#     comment = models.TextField()
-#     profile = models.ForeignKey(Image,on_delete=models.CASCADE,related_name='comments')
-#     user = models.ForeignKey(Profile,on_delete=models.CASCADE,related_name='comment')
+class Comment(models.Model):
+    comment = models.TextField()
+    profile = models.ForeignKey(Image,on_delete=models.CASCADE,related_name='comments')
+    user = models.ForeignKey(Profile,on_delete=models.CASCADE,related_name='comment')
 
-#     def __str__(self):
-#         return f'{self.user.name} Image'
+    def __str__(self):
+        return f'{self.user.name} Image'
 
-#     class Meta:
-#         ordering = ["-pk"]
+    class Meta:
+        ordering = ["-pk"]

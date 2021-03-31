@@ -37,38 +37,38 @@ class Image(models.Model):
         return self.name
 
     
-# class Profile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile',null=True)
-#     photo = models.ImageField(upload_to = 'gallery/', null=True, blank=True, default='download.jpeg')
-#     bio = models.CharField(max_length=300)
-#     name = models.CharField(blank=True, max_length=120)
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile',null=True)
+    photo = models.ImageField(upload_to = 'gallery/', null=True, blank=True, default='download.jpeg')
+    bio = models.CharField(max_length=300)
+    name = models.CharField(blank=True, max_length=120)
 
-#     @receiver(post_save, sender=User)
-#     def create_user_profile(sender, instance, created, **kwargs):
-#         try:
-#             instance.profile.save()
-#         except ObjectDoesNotExist:
-#             Profile.objects.create(user=instance)
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        try:
+            instance.profile.save()
+        except ObjectDoesNotExist:
+            Profile.objects.create(user=instance)
 
-#     @receiver(post_save, sender=User)
-#     def save_user_profile(sender, instance, **kwargs):
-#         instance.profile.save()
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
 
-#     @classmethod
-#     def profile(cls):
-#         profiles = cls.objects.all()
-#         return profiles
+    @classmethod
+    def profile(cls):
+        profiles = cls.objects.all()
+        return profiles
 
-#     def photo_url(self):
-#         if self.photo and hasattr(self.photo, 'url'):
-#             return self.photo.url
+    def photo_url(self):
+        if self.photo and hasattr(self.photo, 'url'):
+            return self.photo.url
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
 
-#     @classmethod
-#     def search_profile(cls, name):
-#         return cls.objects.filter(user__username__icontains=name).all()
+    @classmethod
+    def search_profile(cls, name):
+        return cls.objects.filter(user__username__icontains=name).all()
 
 
 # class Follow(models.Model):

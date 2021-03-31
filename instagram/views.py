@@ -81,20 +81,20 @@ def update_profile(request):
 #         html = render_to_string('index.html', params, request=request)
 #         return JsonResponse({'form': html})
 
-# def search_profile(request):
-#     if 'search_user' in request.GET and request.GET['search_user']:
-#         name = request.GET.get("search_user")
-#         results = Profile.search_profile(name)
-#         print(results)
-#         message = f'name'
-#         params = {
-#             'results': results,
-#             'message': message
-#         }
-#         return render(request, 'results.html', params)
-#     else:
-#         message = "You did not make a selection"
-#     return render(request, 'results.html', {'message': message})
+def search_profile(request):
+    if 'search_user' in request.GET and request.GET['search_user']:
+        name = request.GET.get("search_user")
+        results = Profile.search_profile(name)
+        print(results)
+        message = f'name'
+        params = {
+            'results': results,
+            'message': message
+        }
+        return render(request, 'results.html', params)
+    else:
+        message = "You did not make a selection"
+    return render(request, 'results.html', {'message': message})
 
 # def user_profile(request, username):
 #     user_prof = get_object_or_404(User, username=username)

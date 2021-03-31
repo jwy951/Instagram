@@ -16,18 +16,18 @@ def index(request):
     users = User.objects.exclude(id=request.user.id)
     return render(request,'index.html', {"images":images[::1],"users":users})
 
-# def post(request):
-#     if request.method == 'POST':
-#         form = UploadForm(request.POST,request.FILES)
-#         print(form.errors)
-#         if form.is_valid():
-#             post = form.save(commit=False)
-#             post.user = request.user.profile
-#             post.save()
-#             return redirect('index')
-#     else:
-#         form = UploadForm()
-#     return render(request,'post_image.html', {"form":form})
+def post(request):
+    if request.method == 'POST':
+        form = UploadForm(request.POST,request.FILES)
+        print(form.errors)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user.profile
+            post.save()
+            return redirect('index')
+    else:
+        form = UploadForm()
+    return render(request,'post_image.html', {"form":form})
 
 # def profile(request, username):
 #     images = request.user.profile.images.all()

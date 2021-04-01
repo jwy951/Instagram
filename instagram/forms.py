@@ -9,10 +9,10 @@ class UploadForm(forms.ModelForm):
         model = Image
         fields = ('image','caption')
 
-# class ProfileForm(forms.ModelForm):
-#     class Meta:
-#         model = Profile
-#         fields = ('photo','name','bio')
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('photo','name','bio')
 
 # class UpdateUserForm(forms.ModelForm):
 #     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')

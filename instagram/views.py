@@ -109,7 +109,7 @@ def user_profile(request, username):
 def unfollow(request, to_unfollow):
     if request.method == 'GET':
         user_two_profile = Profile.objects.get(pk=to_unfollow)
-        unfollow_d = Follow.objects.filter(follower=request.user.profile, followed=user_profile2)
+        unfollow_d = Follow.objects.filter(follower=request.user.profile, followed=user_two_profile)
         unfollow_d.delete()
         return redirect('user_profile', user_two_profile.user.username)
 
@@ -118,7 +118,7 @@ def unfollow(request, to_unfollow):
 def follow(request, to_follow):
     if request.method == 'GET':
         user_three_profile = Profile.objects.get(pk=to_follow)
-        follow_s = Follow(follower=request.user.profile, followed=user_profile3)
+        follow_s = Follow(follower=request.user.profile, followed=user_three_profile)
         follow_s.save()
         return redirect('user_profile', user_three_profile.user.username)
 

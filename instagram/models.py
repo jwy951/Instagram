@@ -34,6 +34,11 @@ class Image(models.Model):
     def delete_image(self):
         self.delete()
 
+    @classmethod
+    def update_image(cls,old,new):
+        cap = Image.objects.filter(caption=old).update(caption=new)
+        return cap
+
     def __str__(self):
         return self.name
 

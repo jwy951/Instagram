@@ -8,6 +8,7 @@ from django.contrib.auth import login, authenticate
 from django.template.context_processors import csrf
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from .email import send_welcome_email
 
 
 

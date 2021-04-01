@@ -5,9 +5,8 @@ from django.dispatch import receiver
 from django.core.exceptions import ObjectDoesNotExist
 
 
-
 # Create your models here.
-# 
+
 # likes = models.ManyToManyField(User, related_name='likes')
 class Image(models.Model):
     user = models.ForeignKey('Profile', on_delete=models.CASCADE, related_name='images')
@@ -17,6 +16,8 @@ class Image(models.Model):
 
     class Meta:
         ordering = ["-pk"]
+
+   
 
     @classmethod
     def images(cls):
@@ -30,8 +31,8 @@ class Image(models.Model):
     def save_image(self):
         self.save()
 
-    def total_likes(self):
-        return self.likes.count()
+    def delete_image(self):
+        self.delete()
 
     def __str__(self):
         return self.name
@@ -63,6 +64,9 @@ class Profile(models.Model):
         if self.photo and hasattr(self.photo, 'url'):
             return self.photo.url
 
+    def save_profile(self):
+        self.user
+
     def __str__(self):
         return self.name
 
@@ -80,11 +84,11 @@ class Follow(models.Model):
 
 class Comment(models.Model):
     comment = models.TextField()
-    profile = models.ForeignKey(Image,on_delete=models.CASCADE,related_name='comments')
-    user = models.ForeignKey(Profile,on_delete=models.CASCADE,related_name='comment')
-
-    def __str__(self):
-        return f'{self.user.name} Image'
+    user = models.ForeignKey('Profile',on_delete=models.CASCADE,related_name='comment')
+    photo = models.ForeignKey('Image',on_delete=models.CASCADE,related_name='comment')
 
     class Meta:
         ordering = ["-pk"]
+
+    def __str__(self):
+        return f'{self.user.name} Image'

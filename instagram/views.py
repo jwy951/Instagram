@@ -102,7 +102,6 @@ def user_profile(request, username):
         'followers': followers,
         'follow_status': follow_status
     }
-    # print(followers)
     return render(request, 'user_profile.html', params)
 
 @login_required(login_url='/accounts/login/')
@@ -126,9 +125,6 @@ def follow(request, to_follow):
 def comment(request, id):
     image = get_object_or_404(Image, pk=id)
     comments = image.comment.all()
-    # is_liked = False
-    # if image.likes.filter(id=request.user.id).exists():
-    #     is_liked = True
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -143,7 +139,5 @@ def comment(request, id):
         'image': image,
         'form': form,
         'comments':comments,
-        # 'is_liked': is_liked,
-        # 'total_likes': image.total_likes()
     }
     return render(request, 'post.html', params)

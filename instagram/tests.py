@@ -43,7 +43,7 @@ class ImageTestClass(TestCase):
         images = Image.objects.all()
         self.assertTrue(len(images) > 0)
 
-    def test_update_single_object_property(self):
+    def test_update_image_caption(self):
         self.image.save_image()
         new_caption =Image.update_image('this is it','Yeah')
         image = Image.objects.get(caption='Yeah')

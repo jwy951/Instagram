@@ -55,7 +55,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&dn3w5c$6yl32$*p+gm$!k47)+l!ak$sa-3ohc$qf8n040^5'
+# SECRET_KEY = '&dn3w5c$6yl32$*p+gm$!k47)+l!ak$sa-3ohc$qf8n040^5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -112,14 +112,14 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'project',
-        'USER': 'moringa',
-        'PASSWORD': '30196642',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'project',
+#         'USER': 'moringa',
+#         'PASSWORD': '30196642',
+#     }
+# }
 
 
 # Password validation

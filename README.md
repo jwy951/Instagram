@@ -1,7 +1,7 @@
 # INSTAGRAM WEBSITE
 #### Instagram is a website that share pictures to friends.
 ## Author
-#### By **Lewis Njagi**
+#### By **Yegon C Johnstone**
 ## Features
 As a user of the website you will be able to:
 1. Sign in to the application to start using.
@@ -12,7 +12,7 @@ As a user of the website you will be able to:
 ## Developement Requirements
 1. Clone the Repo
       ```bash
-        https://github.com/LewisNjagi/instagram.git
+      https://github.com/jwy951/Instagram.git
       ```
 2. Move to the folder and install requirements
       ```bash
@@ -33,13 +33,13 @@ As a user of the website you will be able to:
 | View Profile | 
  
 ## Live Link
-https://clonensta.herokuapp.com/## Known Bugs
+https://jowiye.herokuapp.com/## Known Bugs
 No known Bugs
 ## Technologies Used 
 * PYTHON
 * DJANGO
 ## Support and contact details
-lewismaybach@gmail.com
+johnstoneshylock@gmail.com
 ### License
 *MIT License.  See below for more details on licensing. https://opensource.org/licenses/MIT*
-Copyright (c) {2021} **Lewis Njagi**
+Copyright (c) {2021} **Yegon C Johnstone**

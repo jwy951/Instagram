@@ -17,18 +17,18 @@
 
 <div class="container" style="font-family: 'Forum', cursive;">
     <div class="row">
-        <div class="col-8">
+        <div class="col-7">
             {% for image in images %}
-            <div class="card" style="width: 40rem; margin-top: 100px;">
+            <div class="card" style="width: 30rem; margin-top: 20px;">
                 <div class="card-title">
                     <img src="{{image.user.photo.url}}" class="rounded-circle border ml-3 mt-2  mr-3"
                         alt="{{image.user.user.username}}" width="35" height="35">
                     <a href="{% url 'profile' image.user.user.username  %}" class="mt-4 user"
-                        style="color: inherit; font-weight: bold;">{{image.user.user.username|title}}</a>
+                        style="color: inherit; font-weight: bold;color:rgb(0, 255, 255)">{{image.user.user.username|title}}</a>
                 </div>
                 <div class="card-body">
                     <a href="{% url 'comment' image.id %}"><img src="{{ image.image_url }}" class="card-img-top"
-                            alt="..." style="width: 100%;"></a>
+                            alt="..." style="width: 100%;height:350px"></a>
                     <form action="{% url 'index' %}" method="post">
                         {% csrf_token %}
                         {% if is_liked %}
@@ -65,13 +65,13 @@
             </div>
             {% endfor %}
         </div>
-        <div class="col-4" style="margin-top: 100px;">
+        <div class="col-4" style="margin-top: 20px;">
             <h3>Suggestions for you</h3>
             {% for user in users %}
             <div class="container">
                 <div class="row">
                     <div class="col-md-2 mr-3 mt-1 mb-2">
-                        <img class="rounded-circle" src="{{ user.profile.photo.url }}" width="45px" height="45px">
+                        <img class="rounded-circle" style="color:aqua" src="{{ user.profile.photo.url }}" width="50px" height="50px">
                     </div>
                     <div class="col-md-6 mr-2 mt-2">
                         <span><a href="{% url 'user_profile' user.username  %}">{{ user.username }}</a></span>

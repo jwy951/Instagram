@@ -10,12 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-
 import os
-from decouple import config,Csv
-import django_heroku
-import dj_database_url
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from decouple import config,Csv
+import dj_database_url
+import django_heroku
+
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
@@ -171,5 +174,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/' 
+
+cloudinary.config( 
+  cloud_name = "dkpulir7f", 
+  api_key = "625168967491911", 
+  api_secret = "V6HdNtfcE3SPYaEpK_VoaI92cT4",
+  secure = True
+)
 
 django_heroku.settings(locals())

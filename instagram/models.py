@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.exceptions import ObjectDoesNotExist
+import cloudinary
+from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
@@ -10,7 +12,9 @@ from django.core.exceptions import ObjectDoesNotExist
 # likes = models.ManyToManyField(User, related_name='likes')
 class Image(models.Model):
     user = models.ForeignKey('Profile', on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to = 'gallery/', null=True, blank=True)
+    # image = models.CloudinaryField(upload_to = 'gallery/', null=True, blank=True)
+    # image = CloudinaryField('image')
+    image = cloudinary.models.CloudinaryField('image',null=True, blank=True)
     name = models.CharField(max_length=30)
     caption = models.CharField(max_length=30)
 
@@ -46,6 +50,7 @@ class Image(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile',null=True)
     photo = models.ImageField(upload_to = 'gallery/', null=True, blank=True, default='download.jpeg')
+    # photo = cloudinary.models.CloudinaryField('image',null=True, blank=True)
     bio = models.CharField(max_length=300)
     name = models.CharField(blank=True, max_length=120)
 
